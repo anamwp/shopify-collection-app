@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
-class User extends Authenticatable
+use Osiset\ShopifyApp\Contracts\ShopModel;
+use Osiset\ShopifyApp\Traits\ShopModel as TraitsShopModel;
+class User extends Authenticatable implements ShopModel
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, TraitsShopModel;
 
     /**
      * The attributes that are mass assignable.
